@@ -255,7 +255,7 @@ class BiEncoder(nn.Module):
             logits = self.q_extract_model(input_ids=doc_ids, attention_mask=doc_attention_mask, labels=chunk_ids).logits  # [bs,chunk_len,vocab_size]
             # logits = self.model(input_ids=chunk_ids, attention_mask=chunk_attention_mask, labels=doc_ids).logits
             log_softmax = torch.nn.functional.log_softmax(logits, dim=-1)  # [bs,chunk_len,vocab_size]
-            nll = -log_softmax.dist_gather(2, chunk_ids.unsqueeze(2)).squeeze(2)  # [bs,chunk_len]
+            nll = -log_softmax.gather(2, chunk_ids.unsqueeze(2)).squeeze(2)  # [bs,chunk_len]
             avg_nll = torch.sum(nll, dim=1)  # [bs*nchunk]
         # self.print_doc_chunks(docs, chunks, avg_nll)
             selected_chunk_ids = avg_nll.reshape(-1, num_chunk_per_doc).argmin(dim=1)
