@@ -1,6 +1,6 @@
 # AugTriever: Unsupervised Dense Retrieval by Scalable Data Augmentation
 
-This repository contains the code and models of the paper "[AugTriever: Unsupervised Dense Retrieval by Scalable Data Augmentation](https://arxiv.org/abs/2112.07708)"
+This repository contains the code and models of the paper "[AugTriever: Unsupervised Dense Retrieval by Scalable Data Augmentation](https://arxiv.org/abs/2212.08841)"
 
 Our code is based on the following repositories:
 - [SimCSE](https://github.com/princeton-nlp/SimCSE) released with the [SimCSE](https://arxiv.org/abs/2104.08821) paper.
